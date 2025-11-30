@@ -1,10 +1,12 @@
 import streamlit as st
 import requests
+import os
 
 st.title("🧠 RAG Chatbot with Local LLM")
 
-import os
 API_BASE = os.environ.get("API_BASE", "http://localhost:8000")
+if not API_BASE.startswith("http"):
+    API_BASE = f"https://{API_BASE}"
 
 # Sidebar selection
 option = st.sidebar.selectbox("Choose Action", ["Upload File", "Ask Question"])
