@@ -9,14 +9,14 @@ def init_qdrant():
     if not qdrant.collection_exists(COLLECTION):
         qdrant.recreate_collection(
             collection_name=COLLECTION,
-            vectors_config=VectorParams(size=384, distance=Distance.COSINE)
+            vectors_config=VectorParams(size=768, distance=Distance.COSINE)
         )
 
 def store_chunks(chunks, vectors, file_id):
     points = [
         PointStruct(
             id=int(uuid.uuid4().int >> 64),
-            vector=vec.tolist(),
+            vector=vec, # vectors from google embeddings are already lists, not numpy arrays
             payload={ "file_id": file_id, "chunk": chunk }
         )
         for vec, chunk in zip(vectors, chunks)
