@@ -1,0 +1,15 @@
+
+fastapi
+uvicorn
+qdrant-client
+sentence-transformers
+python-docx
+pymupdf
+openpyxl
+xlrd
+langchain
+openai
+langchain-community
+langchain-google-genai
+python-dotenv
+pandas
