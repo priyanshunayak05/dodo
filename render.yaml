@@ -3,6 +3,7 @@ services:
   - type: web
     name: rag-backend
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
     envVars:
@@ -15,6 +16,7 @@ services:
   - type: web
     name: rag-frontend
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: streamlit run app.py
     envVars:
